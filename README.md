@@ -19,27 +19,6 @@
     </a>
 </p>
 
-<p align="center">
-    <a href="https://github.com/Xposed-Modules-Repo/me.hd.nullavatar/releases">
-        <img src="https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.hd.nullavatar/total?style=flat-square&label=LSPosedRepo&labelColor=f48fb1&color=eeeeee" alt="downloads">
-    </a>
-    <a href="https://github.com/Xposed-Modules-Repo/me.hd.nullavatar/stargazers">
-        <img src="https://img.shields.io/github/stars/Xposed-Modules-Repo/me.hd.nullavatar?style=flat-square&label=Stars&labelColor=f48fb1&color=dfb317" alt="stars">
-    </a>
-    <a href="https://github.com/Xposed-Modules-Repo/me.hd.nullavatar/network/members">
-        <img src="https://img.shields.io/github/forks/Xposed-Modules-Repo/me.hd.nullavatar?style=flat-square&label=Forks&labelColor=f48fb1&color=97ca00" alt="forks">
-    </a>
-    <a href="https://github.com/Xposed-Modules-Repo/me.hd.nullavatar/issues">
-        <img src="https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.nullavatar?style=flat-square&label=Issues&labelColor=f48fb1&color=007ec6" alt="issues">
-    </a>
-</p>
-
-<p align="center">
-    <a href="https://github.com/HdShare/NullAvatar/releases/latest">
-        <img src="https://img.shields.io/github/v/release/HdShare/NullAvatar?style=flat-square&label=Release&labelColor=28c445&color=c8c8c8" alt="release">
-    </a>
-</p>
-
 ---
 
 ## 说明:
@@ -50,6 +29,11 @@ NullAvatar 透明头像
 - 一切开发旨在学习，请勿用于非法用途
 - 鉴于项目的特殊性，开发团队可能随时**停止更新**或**删除项目**
 
+### 图片
+
+1. 如果 /data/user/0/宿主包名/files/NullAvatar.png 存在, 则使用 自定义图片
+2. 否则 回退使用 默认的透明图片
+
 ---
 
 ## 致谢:
@@ -57,13 +41,3 @@ NullAvatar 透明头像
 | Name        | Link                                                      |
 |-------------|-----------------------------------------------------------|
 | YukiHookAPI | [YukiHookAPI](https://github.com/HighCapable/YukiHookAPI) |
-
----
-
-## 星图:
-
-<p align="center">
-    <a href="https://github.com/HdShare/NullAvatar">
-        <img src="https://starchart.cc/HdShare/NullAvatar.svg?background=%23FFFFFF&axis=%23333333&line=%2328c445" alt="starchart">
-    </a>
-</p>

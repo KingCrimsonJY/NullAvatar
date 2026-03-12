@@ -15,7 +15,7 @@ object AMapHooker : BaseHook() {
                 parameters(classOf<Context>(), classOf<Bitmap>())
             }.hook {
                 before {
-                    args(1).set(AvatarUtil.getBitmap())
+                    args(1).set(AvatarUtil.getBitmap(ctx))
                 }
             }
         }

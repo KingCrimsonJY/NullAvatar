@@ -15,7 +15,7 @@ object EasyBikeHooker : BaseHook() {
                 parameters(classOf<Bitmap>())
             }.hook {
                 before {
-                    args(0).set(AvatarUtil.getBitmap())
+                    args(0).set(AvatarUtil.getBitmap(ctx))
                 }
             }
         }

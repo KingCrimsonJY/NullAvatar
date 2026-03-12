@@ -7,6 +7,7 @@ import android.net.Uri
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import me.hd.nullavatar.hook.base.BaseHook
 import me.hd.nullavatar.hook.util.AvatarUtil
+import me.hd.nullavatar.hook.util.toStream
 import java.io.File
 
 object EleHooker : BaseHook() {
@@ -21,7 +22,7 @@ object EleHooker : BaseHook() {
                     val intent = args(2).cast<Intent>()!!
                     if (resultCode == Activity.RESULT_OK && requestCode == 819) {
                         val file = File(ctx.cacheDir, "ecamera/IMG_CACHE.png").apply { parentFile?.mkdirs() }
-                        file.outputStream().use { AvatarUtil.getOutputStream().writeTo(it) }
+                        file.outputStream().use { AvatarUtil.getBitmap(ctx).toStream().writeTo(it) }
                         intent.data = Uri.fromFile(file)
                     }
                 }

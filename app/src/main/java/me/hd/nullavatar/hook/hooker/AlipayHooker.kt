@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import com.highcapable.kavaref.extension.classOf
 import me.hd.nullavatar.hook.base.BaseHook
 import me.hd.nullavatar.hook.util.AvatarUtil
+import me.hd.nullavatar.hook.util.toByteArray
 import org.luckypray.dexkit.DexKitBridge
 import org.luckypray.dexkit.wrap.DexMethod
 
@@ -28,7 +29,7 @@ object AlipayHooker : BaseHook() {
     override fun onBaseHook(ctx: Context, loader: ClassLoader) {
         loadCompressedByteMethod.toAppMethod().hook {
             before {
-                result = AvatarUtil.getByteArray()
+                result = AvatarUtil.getBitmap(ctx).toByteArray()
             }
         }
     }

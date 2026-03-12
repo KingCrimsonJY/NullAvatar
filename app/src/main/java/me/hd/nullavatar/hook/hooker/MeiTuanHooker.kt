@@ -4,6 +4,7 @@ import android.content.Context
 import com.highcapable.kavaref.extension.classOf
 import me.hd.nullavatar.hook.base.BaseHook
 import me.hd.nullavatar.hook.util.AvatarUtil
+import me.hd.nullavatar.hook.util.toByteArray
 import org.luckypray.dexkit.DexKitBridge
 import org.luckypray.dexkit.wrap.DexMethod
 
@@ -26,7 +27,7 @@ object MeiTuanHooker : BaseHook() {
     override fun onBaseHook(ctx: Context, loader: ClassLoader) {
         updateUserAvatarPictureMethod.toAppMethod().hook {
             before {
-                args(2).set(AvatarUtil.getByteArray())
+                args(2).set(AvatarUtil.getBitmap(ctx).toByteArray())
             }
         }
     }

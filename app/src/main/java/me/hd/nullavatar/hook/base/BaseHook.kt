@@ -11,15 +11,15 @@ import kotlin.system.measureTimeMillis
 
 abstract class BaseHook : YukiBaseHooker() {
     override fun onHook() {
-        YLog.debug("loading module: ${NullAvatar.APP_NAME}(${NullAvatar.VER_NAME})")
-        val costTime = measureTimeMillis {
-            System.loadLibrary("dexkit")
-            DexKitBridge.create(appClassLoader!!, true).use(::onDexFind)
-        }
-        YLog.debug("dexkit find: costTime(${costTime}ms)")
         onAppLifecycle {
             onCreate {
                 withProcess(mainProcessName) {
+                    YLog.debug("loading module: ${NullAvatar.APP_NAME}(${NullAvatar.VER_NAME})")
+                    val costTime = measureTimeMillis {
+                        System.loadLibrary("dexkit")
+                        DexKitBridge.create(appClassLoader!!, true).use(::onDexFind)
+                    }
+                    YLog.debug("dexkit find: costTime(${costTime}ms)")
                     onBaseHook(appContext!!, appClassLoader!!)
                 }
             }

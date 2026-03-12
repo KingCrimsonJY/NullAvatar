@@ -4,6 +4,7 @@ import android.content.Context
 import com.highcapable.kavaref.KavaRef.Companion.asResolver
 import me.hd.nullavatar.hook.base.BaseHook
 import me.hd.nullavatar.hook.util.AvatarUtil
+import me.hd.nullavatar.hook.util.toStream
 import org.luckypray.dexkit.DexKitBridge
 import org.luckypray.dexkit.wrap.DexMethod
 import java.io.File
@@ -26,7 +27,7 @@ object WeChatHooker : BaseHook() {
         getClipBitmapMethod.toAppMethod().hook {
             after {
                 val path = result!!.asResolver().firstField { type = String::class }.get<String>()!!
-                File(path).outputStream().use { AvatarUtil.getOutputStream().writeTo(it) }
+                File(path).outputStream().use { AvatarUtil.getBitmap(ctx).toStream().writeTo(it) }
             }
         }
     }

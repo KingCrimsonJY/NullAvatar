@@ -5,6 +5,7 @@ import com.highcapable.kavaref.KavaRef.Companion.asResolver
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import me.hd.nullavatar.hook.base.BaseHook
 import me.hd.nullavatar.hook.util.AvatarUtil
+import me.hd.nullavatar.hook.util.toStream
 import java.io.File
 
 object IdleFishHooker : BaseHook() {
@@ -15,7 +16,7 @@ object IdleFishHooker : BaseHook() {
             }.hook {
                 after {
                     val outputPath = instance.asResolver().firstField { name = "mOutputPath" }.get<String>()!!
-                    File(outputPath).outputStream().use { AvatarUtil.getOutputStream().writeTo(it) }
+                    File(outputPath).outputStream().use { AvatarUtil.getBitmap(ctx).toStream().writeTo(it) }
                 }
             }
         }
