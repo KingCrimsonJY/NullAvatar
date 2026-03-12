@@ -14,7 +14,6 @@ object AlipayHooker : BaseHook() {
     override fun onDexFind(dexkit: DexKitBridge) {
         loadCompressedByteMethod = dexkit.findMethod {
             matcher {
-                declaredClass("com.alipay.mobile.security.photo.ui.SelectPhotoActivity")
                 returnType(classOf<ByteArray>())
                 paramTypes(classOf<Bitmap>(), classOf<Long>())
                 usingEqStrings(
